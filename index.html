@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Peer to Peer Web Chat</title>
-  <!-- Fuente Nunito desde Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -38,28 +37,16 @@
         <div id="regMsg"></div>
       </div>
     </div>
+
+    <!-- Aquí irá el chat principal -->
+    <div id="chatDiv" class="hidden">
+      <h2>Chat Room</h2>
+      <div id="messages" style="height:300px;overflow:auto;background:#1e1e2f;padding:10px;border-radius:6px;margin-bottom:10px;"></div>
+      <input type="text" id="msgInput" placeholder="Type a message..." style="width:70%;padding:8px;border-radius:6px;border:none;">
+      <button id="sendBtn">Send</button>
+    </div>
   </main>
 
   <script src="app.js"></script>
-  <script>
-    // Mostrar/ocultar formularios según botón pulsado
-    const showLoginBtn = document.getElementById("showLogin");
-    const showRegisterBtn = document.getElementById("showRegister");
-    const loginForm = document.getElementById("loginForm");
-    const registerForm = document.getElementById("registerForm");
-    const authChoice = document.getElementById("authChoice");
-
-    showLoginBtn.addEventListener("click", () => {
-      loginForm.classList.remove("hidden");
-      registerForm.classList.add("hidden");
-      authChoice.classList.add("hidden");
-    });
-
-    showRegisterBtn.addEventListener("click", () => {
-      registerForm.classList.remove("hidden");
-      loginForm.classList.add("hidden");
-      authChoice.classList.add("hidden");
-    });
-  </script>
 </body>
 </html>

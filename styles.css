@@ -1,4 +1,3 @@
-
 /* Fuente moderna */
 body {
   font-family: 'Nunito', sans-serif;
@@ -9,6 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
 header {
@@ -22,7 +22,8 @@ header h1 {
   color: #00d8ff;
 }
 
-#loginDiv {
+/* Contenedor principal */
+#loginDiv, #chatDiv {
   background-color: #2a2a40;
   padding: 30px;
   border-radius: 12px;
@@ -33,6 +34,7 @@ header h1 {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
+/* Botones */
 button {
   padding: 10px 25px;
   font-size: 16px;
@@ -50,6 +52,7 @@ button:hover {
   background-color: #00b0cc;
 }
 
+/* Inputs */
 input {
   width: 90%;
   padding: 10px;
@@ -57,8 +60,11 @@ input {
   border-radius: 6px;
   border: none;
   font-size: 16px;
+  background-color: #3a3a50;
+  color: #fff;
 }
 
+/* Formularios */
 .authForm h2 {
   margin-bottom: 15px;
   color: #00d8ff;
@@ -68,10 +74,36 @@ input {
   display: none;
 }
 
-/* Centrar los botones iniciales */
+/* Contenedor de botones iniciales centrados */
 #authChoice {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-bottom: 20px;
+}
+
+/* Contenedor de mensajes en chat */
+#messages {
+  background-color: #1e1e2f;
+  border-radius: 6px;
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  border: 1px solid #444;
+}
+
+/* Input y botón de enviar mensaje */
+#msgInput {
+  width: 70%;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  margin-right: 10px;
+  background-color: #3a3a50;
+  color: #fff;
+}
+
+#sendBtn {
+  padding: 9px 20px;
 }
