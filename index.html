@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Chat P2P LAN Profesional</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Chat P2P LAN - Multi-grupos Profesional</h1>
+
+<div id="loginDiv">
+  <button id="showLogin">Iniciar sesión</button>
+  <button id="showRegister">Registrarse</button>
+
+  <div id="loginForm" class="authForm">
+    <h3>Iniciar sesión</h3>
+    Usuario: <input type="text" id="loginUser" placeholder="Username"><br>
+    Contraseña: <input type="password" id="loginPass" placeholder="Password"><br>
+    <button id="loginBtn">Entrar</button>
+    <div id="loginMsg"></div>
+  </div>
+
+  <div id="registerForm" class="authForm">
+    <h3>Registrarse</h3>
+    Usuario: <input type="text" id="regUser" placeholder="Username"><br>
+    Contraseña: <input type="password" id="regPass" placeholder="Password"><br>
+    <button id="registerBtn">Registrar</button>
+    <div id="regMsg"></div>
+  </div>
+</div>
+
+<div id="mainDiv">
+  <h3>Bienvenido <span id="currentUser"></span></h3>
+
+  <section>
+    <h4>Usuarios registrados</h4>
+    <div id="users"></div>
+  </section>
+
+  <section>
+    <h4>Grupos en los que participas</h4>
+    <div id="groups"></div>
+  </section>
+
+  <section>
+    <h4>Invitaciones pendientes</h4>
+    <div id="invites"></div>
+  </section>
+
+  <section>
+    <h4>Crear Grupo</h4>
+    Nombre: <input type="text" id="newGroupName" placeholder="Nombre del grupo"><br>
+    Invitar usuarios (coma separados): <input type="text" id="inviteUsers" placeholder="username1,username2"><br>
+    <button id="createGroupBtn">Crear Grupo</button>
+  </section>
+
+  <section>
+    <h4>Chat</h4>
+    <div id="chat"></div>
+    <input type="text" id="msg" placeholder="Escribe mensaje">
+    <select id="groupSelect"></select>
+    <button id="send">Enviar</button>
+  </section>
+
+  <section>
+    <h4>Señalización (SDP para inicializar P2P)</h4>
+    <textarea id="localOffer" placeholder="Oferta local"></textarea>
+    <textarea id="remoteOffer" placeholder="Oferta remota"></textarea>
+    <button id="createOffer">Crear Oferta</button>
+    <button id="acceptOffer">Aceptar Oferta</button>
+  </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

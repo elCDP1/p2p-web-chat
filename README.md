@@ -1,2 +1,6 @@
-# real-time-web_chat-p2p
-Test version of a peer to peer web chat.
+Peer to peer real time web chat.
+
+
+
+Testing versión of an attempt of a p2p chat (no central server).
+
