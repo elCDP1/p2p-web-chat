@@ -1,55 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Peer to Peer Web Chat</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <title>Peer to Peer Web Chat</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div id="app">
+    <header><h1 class="title">Peer to Peer Web Chat</h1></header>
 
-<div id="main-container">
+    <!-- START SCREEN -->
+    <section id="start-screen" class="panel">
+      <div class="button-row">
+        <button id="btnShowRegister" class="main-btn">Register</button>
+        <button id="btnShowLogin" class="main-btn">Log In</button>
+      </div>
+    </section>
 
-    <h1 class="title">Peer to Peer Web Chat</h1>
-
-    <!-- Button Screen (first thing user sees) -->
-    <div id="start-screen">
-        <button class="main-btn" onclick="showRegister()">Register</button>
-        <button class="main-btn" onclick="showLogin()">Sign In</button>
-    </div>
-
-    <!-- Registration Form -->
-    <div id="register-screen" class="hidden form-box">
+    <!-- REGISTER -->
+    <section id="register-screen" class="panel hidden">
+      <div class="form-box">
         <h2>Register</h2>
-        <input type="text" id="reg-username" placeholder="Username">
-        <input type="password" id="reg-password" placeholder="Password">
-        <button class="main-btn" onclick="registerUser()">Create Account</button>
-        <button class="link-btn" onclick="goBack()">Back</button>
-    </div>
-
-    <!-- Login Form -->
-    <div id="login-screen" class="hidden form-box">
-        <h2>Sign In</h2>
-        <input type="text" id="login-username" placeholder="Username">
-        <input type="password" id="login-password" placeholder="Password">
-        <button class="main-btn" onclick="loginUser()">Log In</button>
-        <button class="link-btn" onclick="goBack()">Back</button>
-    </div>
-
-    <!-- Chat UI -->
-    <div id="chat-screen" class="hidden">
-        <h2>Welcome <span id="current-user"></span>!</h2>
-
-        <div id="messages"></div>
-
-        <div id="send-box">
-            <input type="text" id="msg-input" placeholder="Type a message..." onkeypress="checkEnter(event)">
-            <button class="main-btn" onclick="sendMessage()">Send</button>
+        <input id="reg-username" type="text" placeholder="Username" autocomplete="username">
+        <input id="reg-password" type="password" placeholder="Password" autocomplete="new-password">
+        <div class="form-actions">
+          <button id="btnRegister" class="main-btn">Create account</button>
+          <button id="btnBackFromRegister" class="link-btn">Back</button>
         </div>
-    </div>
+        <div id="reg-feedback" class="feedback"></div>
+      </div>
+    </section>
 
-</div>
+    <!-- LOGIN -->
+    <section id="login-screen" class="panel hidden">
+      <div class="form-box">
+        <h2>Log In</h2>
+        <input id="login-username" type="text" placeholder="Username" autocomplete="username">
+        <input id="login-password" type="password" placeholder="Password" autocomplete="current-password">
+        <div class="form-actions">
+          <button id="btnLogin" class="main-btn">Log In</button>
+          <button id="btnBackFromLogin" class="link-btn">Back</button>
+        </div>
+        <div id="login-feedback" class="feedback"></div>
+      </div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- CHAT -->
+    <section id="chat-screen" class="panel hidden">
+      <div class="chat-box">
+        <div class="chat-header">
+          <h2>Welcome <span id="current-user"></span></h2>
+          <button id="btnLogout" class="link-btn">Log out</button>
+        </div>
 
+        <!-- MD MANAGEMENT -->
+        <div id="md-management" style="margin-top:20px;">
+          <h3>Your MDs</h3>
+          <ul id="md-active-list"></ul>
+
+          <h3>MD Requests</h3>
+          <ul id="md-requests-list"></ul>
+        </div>
+
+        <!-- Start MD -->
+        <div id="md-section" style="margin-top:12px;">
+          <button id="btnStartMD" class="main-btn">Start MD</button>
+          <div id="md-request" class="hidden" style="margin-top:8px;">
+            <input id="md-input" type="text" placeholder="Send MD request (username/s separated by ', ')">
+            <button id="btnSendMD" class="main-btn">Create Group</button>
+            <div id="md-feedback" class="feedback"></div>
+          </div>
+        </div>
+
+        <!-- MESSAGES -->
+        <div id="messages" aria-live="polite"></div>
+
+        <!-- MESSAGE INPUT -->
+        <div id="send-box" class="hidden" style="margin-top:10px;">
+          <input id="msg-input" type="text" placeholder="Type a message..." />
+          <button id="btnSend" class="main-btn">Send</button>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
